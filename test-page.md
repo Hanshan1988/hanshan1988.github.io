@@ -1,6 +1,8 @@
+---
 layout: page
 title: "TEST-PAGE"
 permalink: /test/
+---
 
 # Testing Page
 This page is for testing github pages.
