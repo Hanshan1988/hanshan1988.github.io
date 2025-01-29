@@ -5,10 +5,6 @@ description: Personal blog posts
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://hanshan1988.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
-author:
-  name: Hans Han
-  email: "hanshan1988@gmail.com"
-
 minima:
   social_links:
     - { platform: github,  user_url: "https://github.com/hanshan1988" }
