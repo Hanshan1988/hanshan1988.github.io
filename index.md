@@ -4,5 +4,3 @@
 
 layout: home
 ---
-
-Just added this
