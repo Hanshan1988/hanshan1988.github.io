@@ -1,3 +1,28 @@
 theme: minima
-title: Hans's homepage
-description: Bookmark this to keep an eye on my project updates!
+title: Hans' Homepage
+email: hanshan1988@gmail.com
+description: Personal blog posts
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://hanshan1988.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+
+author:
+  name: Hans Han
+  email: "hanshan1988@gmail.com"
+
+minima:
+  social_links:
+    - { platform: github,  user_url: "https://github.com/hanshan1988" }
+
+# Build settings
+remote_theme: jekyll/minima
+# theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-remote-theme
+  - jemoji
+  - jekyll-sitemap
+
+include:
+  - _pages
+
+show_excerpts: true
