@@ -1,4 +1,3 @@
-theme: minima
 title: Hans' Homepage
 email: hanshan1988@gmail.com
 description: Personal blog posts
@@ -9,9 +8,9 @@ minima:
   social_links:
     - { platform: github,  user_url: "https://github.com/hanshan1988" }
 
-# # Build settings
-# remote_theme: jekyll/minima
-# theme: minima
+# Build settings
+remote_theme: jekyll/minima
+theme: minima
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
