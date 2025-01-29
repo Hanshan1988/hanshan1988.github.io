@@ -9,7 +9,7 @@ minima:
     - { platform: github,  user_url: "https://github.com/hanshan1988" }
 
 # Build settings
-remote_theme: jekyll/minima
+# remote_theme: jekyll/minima
 theme: minima
 plugins:
   - jekyll-feed
