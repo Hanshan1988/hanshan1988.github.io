@@ -11,12 +11,10 @@ permalink: /2025/02/23/llm-post-train-grpo-take-aways.html/
 TLDR: A lot of design choices and experimentation are still needed for effective and efficient Reinforcement Learning as a post-training step in open weights LLMs.
 
 # Setup 
-
 ## Hardware
 I ran this experiment on a Google Colab notebook. The number of steps is capped to 250.
 
 ## Software
-
 ### Training Framework
 [Unsloth](https://unsloth.ai/) is a framework built on top of Huggingface Transformers library, that allows for significantly improved speed and less memory needed when fine-tuning most of the major open weights LLMs. I've followed closely their [blog](https://unsloth.ai/blog/r1-reasoning) on fine-tuning for reasoning models.
 
@@ -32,6 +30,7 @@ Hugginface [datasets](https://huggingface.co/docs/datasets/en/index) library whi
 
 ### Visualisation
 I've used Google's [Embedding Project](https://projector.tensorflow.org/) to visualise the GSM8K dataset.
+![](/grpo/gsm8k-embeddings-viz.gif "embeddings-gif"){:height="100%" width="100%"}
 
 ### Training Monitoring
 To visualise model's performance against many of the internal hyperparameters and metrics such as learning rates, reward values, loss etc. I used [Weghts and Biases](https://wandb.ai/site/). It's a great platform for surfacing and monitoring metrics, logs and many more during model training processes.
@@ -42,7 +41,6 @@ To visualise model's performance against many of the internal hyperparameters an
 The LLM used is `meta-llama/meta-Llama-3.1-8B-Instruct`.
 
 # Results
-
 ## Model Metrics
 See the numbers below for Weights and Biases training run.
 ![]({{ "/assets/grpo/grpo-wandb-train-1.jpg" | absolute_url }}){:height="100%" width="100%"}
