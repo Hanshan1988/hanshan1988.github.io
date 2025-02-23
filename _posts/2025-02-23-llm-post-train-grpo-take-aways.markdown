@@ -3,7 +3,7 @@ layout: post
 title:  "LLM Reinforcement Learning with GRPO"
 excerpt: "What I've learnt from attempting post-training reinforcement learning on open weights LLM."
 date:   2025-02-23
-hide: false
+hide: true
 categories: deep-learning llm visualisation rl
 permalink: /2025/02/23/llm-post-train-grpo-take-aways.html/
 ---
