@@ -32,7 +32,7 @@ Hugginface [datasets](https://huggingface.co/docs/datasets/en/index) library whi
 I've used Google's [Embedding Project](https://projector.tensorflow.org/) to visualise the GSM8K dataset.
 
 ### Training Monitoring
-To visualise model's performance against many of the internal hyperparameters and metrics such as learning rates, reward values, loss etc. I used (Weghts and Biases)[https://wandb.ai/site/]. It's a great platform for surfacing and monitoring metrics, logs and many more during model training processes.
+To visualise model's performance against many of the internal hyperparameters and metrics such as learning rates, reward values, loss etc. I used [Weghts and Biases](https://wandb.ai/site/). It's a great platform for surfacing and monitoring metrics, logs and many more during model training processes.
 
 # Methodology
 ## Model Loading
