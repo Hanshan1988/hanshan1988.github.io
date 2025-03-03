@@ -215,8 +215,8 @@ After 300 steps, the model evaluation on the unseen test dataset is as below. No
 
 | Metric Type | Value | Max Value |
 | ----------- | ----------- | ----------- |
-| Hard correctness | 0.789 | 1.0
-| Soft correctness | 0.785 | 1.0
+| Hard correctness | 0.785 | 1.0
+| Soft correctness | 0.789 | 1.0
 | Integer reward | 0.469 | 0.5
 | Soft format reward |  0.490 | 0.5
 | Hard format reward | 0.489 |  0.5
