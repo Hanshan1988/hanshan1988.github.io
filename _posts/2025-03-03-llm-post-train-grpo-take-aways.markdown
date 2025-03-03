@@ -9,8 +9,8 @@ permalink: /2025/03/03/llm-post-train-grpo-take-aways.html/
 ---
 
 ## TLDR 
-I've tried reinforcement learning (RL) techinique leveraged by DeepSeek on a specific training dataset to improve the reasoning capability of large language models. The conclusion is that though there are significant improvements over the base model, a lot of design choices and experimentation are needed for achieving effective and efficient RL as a critical post-training step in open weights LLMs towards reliably stronger reasoning capability. These choices include but are not limited to:
-* Choice of fine-tuning dataset (for the chat conversations and final answers)
+I've tried reinforcement learning (RL) techinique leveraged by DeepSeek on a specific training dataset to improve the reasoning capability of large language models. Though there are significant improvements over the base model, a lot of design choices and experimentation are needed for achieving effective and efficient RL as a critical post-training step in open weights LLMs towards reliably stronger reasoning capability. These choices include but are not limited to:
+* Choice and format of fine-tuning dataset
 * Base model to perform RL on - pretrained base model vs models with instruction supervised fined tuning (SFT) + reinforcement learning with human feedback (RLHF)
 * Full fine tuning vs parameter efficient fine tuning (PEFT) methods (+ choice of finetuning hyperparameters in the case of LORA e.g. rank and alpha)
 * Whether to perform further chain-of-thought (CoT) instruction SFT first before undertaking RL - DeepSeek R1 did this but not R1-zero
@@ -211,7 +211,8 @@ See the numbers below for training numbers logged in Weights and Biases run.
 [![](/assets/grpo/grpo-wandb-train-2.jpg)](/assets/grpo/grpo-wandb-train-2.jpg "GRPO Training Metrics 2"){:height="100%" width="100%"}
 
 ### Post-RL Model Evaluation
-After 300 steps, the model evaluation on the unseen test dataset is as below. Note that the numbers after the entire 350 steps are slightly worse than the ones below but still showed significant improvement over the original pretrained model evaluation numbers above. This may be due to the model still trying to learn the training dataset as it only observed a small fraction (< 10% of an epoch)
+After 300 steps, the model evaluation on the unseen test dataset is as below. Note that the numbers after the entire 350 steps are slightly worse than the ones below but still showed significant improvement over the original pretrained model evaluation numbers above. This may be due to the model still trying to learn the training dataset as it only observed a small fraction (< 10% of an epoch)  
+
 | Metric Type | Value | Max Value |
 | ----------- | ----------- | ----------- |
 | Hard correctness | 0.789 | 1.0
@@ -267,8 +268,8 @@ Extracted:
 
 ## Next Steps
 For the curious minds, there are many more experiments we can do with this setup to understand further about reasoning models. At a high level we can try:
-* More challenging datasets - the [Huggingface cookbook on GRPO](https://huggingface.co/learn/cookbook/en/fine_tuning_llm_grpo_trl) trains on this competition level high school maths and maths Olympiad dataset called ["NuminaMath"](https://huggingface.co/datasets/AI-MO/NuminaMath-TIR)
-* Different models and model types - especially base pretrained models that hasn't been through SFT and RLHF e.g. `meta-llama/Llama-3.1-8B` and observe for yourself if the model optimises towards non-human-readable sequence of tokens (referenced in DeepSeek-R1-Zero).
-* Different model sizes - see how the performance scales with base model sizes
-* Different reward functions - get creative about what you value as important for the model to learn
-* Different RL algorithms and setups - this is going to need the most amount of changes as we diverge from GRPO and look at other ways to perform test-time-scaling with RL. One reference article by Huggingface [here](https://huggingface.co/spaces/HuggingFaceH4/blogpost-scaling-test-time-compute) for obtaining rewards during intermediate generations instead of the at the end.
+* **Datasets** - more challenging ones e.g. the [Huggingface cookbook on GRPO](https://huggingface.co/learn/cookbook/en/fine_tuning_llm_grpo_trl) trains on this competition level high school maths and maths Olympiad dataset called ["NuminaMath"](https://huggingface.co/datasets/AI-MO/NuminaMath-TIR)
+* **Models and model types** - especially base pretrained models that hasn't been through SFT and RLHF e.g. `meta-llama/Llama-3.1-8B` and observe for yourself if the model optimises towards non-human-readable sequence of tokens (referenced in DeepSeek-R1-Zero).
+* **Model sizes** - see how the performance scales with base model sizes
+* **Reward functions** - get creative about what you value as important for the model to learn
+* **RL algorithms and setups** - this is going to need the most amount of changes as we diverge from GRPO and look at other ways to perform test-time-scaling with RL. One reference article by Huggingface [here](https://huggingface.co/spaces/HuggingFaceH4/blogpost-scaling-test-time-compute) for obtaining rewards during intermediate generations instead of the at the end.
